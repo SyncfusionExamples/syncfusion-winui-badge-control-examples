@@ -26,7 +26,4 @@ This repository contains the samples that demonstrate the functionalities of Win
   <td><a href="Samples/Badge_Control">Text formatting</a></td>
   <td><a href="Samples/Badge_Control">Change opacity of Badge</a></td>
  </tr>
-  <tr>
-  <td><a href="Samples/Badge_Control">Stroke customization</a></td>
- </tr>
 </table>
