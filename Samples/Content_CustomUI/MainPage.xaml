@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="Content_CustomUI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Content_CustomUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="using:Syncfusion.UI.Xaml.Notifications"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"    
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <local:CustomNumberConverter x:Key="customNumberConverter"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <syncfusion:BadgeContainer Name="badgeContainer" 
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" >
+            <syncfusion:BadgeContainer.Content>
+                <Button BorderThickness="1" 
+                        BorderBrush="Gray" 
+                        Background="White"
+                        x:Name="button" 
+                        Content="Inbox"
+                        Width="100"  
+                        Height="50"/>
+            </syncfusion:BadgeContainer.Content>
+            <syncfusion:BadgeContainer.Badge>
+                <syncfusion:SfBadge Name="badge" 
+                                  Content="{x:Bind badgeContent.Text, Mode=OneWay,
+                                                   Converter={StaticResource customNumberConverter}}">
+                    <syncfusion:SfBadge.ContentTemplate>
+                        <DataTemplate>
+                            <Grid Background="Yellow">
+                                <TextBlock HorizontalAlignment="Left" 
+                                           VerticalAlignment="Top" 
+                                           Foreground="Red"
+                                           Text="{Binding}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </syncfusion:SfBadge.ContentTemplate>
+                </syncfusion:SfBadge>
+            </syncfusion:BadgeContainer.Badge>
+        </syncfusion:BadgeContainer>
+
+        <Grid Grid.Column="1">
+            <muxc:NumberBox x:Name="badgeContent"
+                            Margin="5"
+                            Width="180"
+                            Text="98" 
+                            Header="BadgeContent"
+                            SpinButtonPlacementMode="Compact"
+                            Minimum="0"
+                            Maximum="100000000"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Page>
+

@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="Badge_Control.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Badge_Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="using:Syncfusion.UI.Xaml.Notifications"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <syncfusion:BadgeContainer Name="badgeContainer" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center" >
+            <syncfusion:BadgeContainer.Badge>
+                <syncfusion:SfBadge  Name="badge"
+                                   Width="40"
+                                   Height="40"
+                                   Background="Red"
+                                   Foreground="Yellow"
+                                   Stroke="Blue"
+                                   StrokeThickness="3.0"
+                                   Opacity="0.7"
+                                   FontFamily="Perpetua"
+                                   FontSize="20"
+                                   FontStyle="Oblique" 
+                                   Content="99+"/>
+            </syncfusion:BadgeContainer.Badge>
+            <syncfusion:BadgeContainer.Content>
+                <Button Content="Inbox"
+                        Width="100" Height="40">
+                </Button>
+            </syncfusion:BadgeContainer.Content>
+        </syncfusion:BadgeContainer>
+    </Grid>
+</Page>

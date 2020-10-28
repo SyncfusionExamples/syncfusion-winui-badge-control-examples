@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="Badge_without_BadgeContainer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Badge_without_BadgeContainer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="using:Syncfusion.UI.Xaml.Notifications"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <local:ViewModel/>
+    </Page.DataContext>
+    <Grid>
+        <ListView BorderThickness="1"
+                  BorderBrush="LightGray"
+                  ItemsSource="{Binding MailItems}" 
+                  SelectedIndex="0"
+                  VerticalAlignment="Center" 
+                  HorizontalAlignment="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <ContentPresenter 
+                                          Grid.Column="0" 
+                                          Content="{Binding ItemName}" 
+                                          VerticalAlignment="Center"/>
+                        <syncfusion:SfBadge 
+                                          x:Name="badge4"
+                                          Grid.Column="1" 
+                                          Height="20" 
+                                          Width="40" 
+                                          Content="{Binding UnreadMessageount}"
+                                          Shape="Oval"
+                                          Fill="Warning">
+                        </syncfusion:SfBadge>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -1,0 +1,311 @@
+﻿<Page
+    x:Class="Badge_Features.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Badge_Features"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="using:Syncfusion.UI.Xaml.Notifications"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style TargetType="TextBlock"
+               x:Name="TextBlock_Style">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Grid.Row" Value="0"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+        
+        <Style TargetType="ComboBox"
+               x:Name="ComboBox_Style">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Grid.Row" Value="0"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+        <local:StringToBadgeAlignmentConverter x:Key="stringToBadgeAlignmentConverter"/>
+        <local:StringToBadgeAnchorConverter x:Key="stringToBadgeAnchorConverter"/>
+        <local:StringToBadgeFillConverter x:Key="stringToBadgeFillConverter"/>
+        <local:StringToBadgeShapeConverter x:Key="stringToBadgeShapeConverter"/>
+        <local:StringToAnimationTypeConverter x:Key="stringToAnimationTypeConverter"/>
+        <local:StringToVisibilityConverter x:Key="stringToVisibilityConverter"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" 
+                BorderThickness="1" 
+                Grid.Column="0" 
+                Grid.RowSpan="2"
+                Margin="10">
+            <syncfusion:BadgeContainer HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center" >
+                <syncfusion:BadgeContainer.Content>
+                    <Button Content="Inbox" 
+                            Width="120"  
+                            Height="60"/>
+                </syncfusion:BadgeContainer.Content>
+                <syncfusion:BadgeContainer.Badge>
+                    <syncfusion:SfBadge CustomShape="M 300 100 L 500 400 100 400 Z"
+                                        Content="{Binding ElementName=badgeContent, Path=Text}"
+                                        AnimationType="{Binding ElementName=animationType, Path=SelectedItem.Content, 
+                                                                Converter={StaticResource stringToAnimationTypeConverter}}"
+                                        Shape="{Binding ElementName=badgeShape, Path=SelectedItem.Content, 
+                                                        Converter={StaticResource stringToBadgeShapeConverter}}"
+                                        Fill="{Binding ElementName=badgeFill, Path=SelectedItem.Content, 
+                                                       Converter={StaticResource stringToBadgeFillConverter}}"
+                                        Visibility="{Binding ElementName=visibility, Path=SelectedItem.Content, 
+                                                             Converter={StaticResource stringToVisibilityConverter}}" 
+                                        HorizontalAlignment="{Binding ElementName=horizontalBadgeAlignment, Path=SelectedItem.Content, 
+                                                                      Converter={StaticResource stringToBadgeAlignmentConverter}}" 
+                                        VerticalAlignment="{Binding ElementName=verticalBadgeAlignment, Path=SelectedItem.Content, 
+                                                                    Converter={StaticResource stringToBadgeAlignmentConverter}}"
+                                        HorizontalContentAlignment="{Binding ElementName=horizontalContentAlignment, Path=SelectedItem.Content, 
+                                                                      Converter={StaticResource stringToBadgeAlignmentConverter}}" 
+                                        VerticalContentAlignment="{Binding ElementName=verticalContentAlignment, Path=SelectedItem.Content, 
+                                                                    Converter={StaticResource stringToBadgeAlignmentConverter}}"
+                                        HorizontalAnchor="{Binding ElementName=horizontalBadgeAnchor, Path=SelectedItem.Content, 
+                                                                   Converter={StaticResource stringToBadgeAnchorConverter}}" 
+                                        VerticalAnchor="{Binding ElementName=verticalBadgeAnchor, Path=SelectedItem.Content, 
+                                                                 Converter={StaticResource stringToBadgeAnchorConverter}}"
+                                        Width="50" Height="30">
+                    </syncfusion:SfBadge>
+                </syncfusion:BadgeContainer.Badge>
+            </syncfusion:BadgeContainer>
+        </Border>
+       
+        <Border Margin="10" 
+                Grid.Row="0"
+                Grid.Column="1" 
+                BorderBrush="Black"
+                BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" 
+                      Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="HorizontalBadgeAlignment" 
+                               Style="{StaticResource TextBlock_Style}" />
+                    <ComboBox x:Name="horizontalBadgeAlignment" 
+                              Style="{StaticResource ComboBox_Style}">
+                        <ComboBoxItem Content="Left"/>
+                        <ComboBoxItem Content="Center"/>
+                        <ComboBoxItem Content="Right" IsSelected="True"/>
+                        <ComboBoxItem Content="Stretch"/>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Grid.Row="1" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="VerticalBadgeAlignment"  
+                               Style="{StaticResource TextBlock_Style}" />
+                    <ComboBox x:Name="verticalBadgeAlignment"
+                              Style="{StaticResource ComboBox_Style}">
+                        <ComboBoxItem Content="Top" IsSelected="True"/>
+                        <ComboBoxItem Content="Center"/>
+                        <ComboBoxItem Content="Bottom"/>
+                        <ComboBoxItem Content="Stretch"/>
+                    </ComboBox>
+                </Grid>
+
+                <Grid Grid.Row="2" 
+                      Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="HorizontalBadgeAnchor" 
+                               Style="{StaticResource TextBlock_Style}" />
+                    <ComboBox x:Name="horizontalBadgeAnchor"
+                              Style="{StaticResource ComboBox_Style}">
+                        <ComboBoxItem Content="Inside"/>
+                        <ComboBoxItem Content="Outside"/>
+                        <ComboBoxItem Content="Center" IsSelected="True"/>
+                        <ComboBoxItem Content="Custom"/>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Grid.Row="3" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="VerticalBadgeAnchor"  
+                               Style="{StaticResource TextBlock_Style}" />
+                    <ComboBox x:Name="verticalBadgeAnchor"
+                              Style="{StaticResource ComboBox_Style}">
+                        <ComboBoxItem Content="Inside"/>
+                        <ComboBoxItem Content="Outside"/>
+                        <ComboBoxItem Content="Center" IsSelected="True"/>
+                        <ComboBoxItem Content="Custom"/>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Grid.Row="4" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="BadgeFill"
+                               Style="{StaticResource TextBlock_Style}" />
+                    <ComboBox x:Name="badgeFill" 
+                              Style="{StaticResource ComboBox_Style}">
+                        <ComboBoxItem Content="Alt"/>
+                        <ComboBoxItem Content="Accent"/>
+                        <ComboBoxItem Content="Default"/>
+                        <ComboBoxItem Content="Success"/>
+                        <ComboBoxItem Content="Warning"/>
+                        <ComboBoxItem Content="Error" IsSelected="True"/>
+                        <ComboBoxItem Content="Information" />
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Grid.Row="5" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="BadgeShape" 
+                               Style="{StaticResource TextBlock_Style}" />
+                    <ComboBox x:Name="badgeShape"
+                              Style="{StaticResource ComboBox_Style}">
+                        <ComboBoxItem Content="Ellipse" IsSelected="True"/>
+                        <ComboBoxItem Content="Oval"/>
+                        <ComboBoxItem Content="Rectangle"/>
+                        <ComboBoxItem Content="Custom" />
+                        <ComboBoxItem Content="None"/>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Grid.Row="6" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="BadgeContent"  
+                               Style="{StaticResource TextBlock_Style}" />
+                    <TextBox Grid.Column="1"
+                             x:Name="badgeContent" 
+                             Text="20" 
+                             Width="200" Height="40" 
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center" />
+
+                </Grid>
+
+                <Grid Grid.Row="7" 
+                      Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="AnimationType"
+                               Style="{StaticResource TextBlock_Style}" />
+                    <ComboBox x:Name="animationType" 
+                              Style="{StaticResource ComboBox_Style}">
+                        <ComboBoxItem Content="None"/>
+                        <ComboBoxItem Content="Opacity" IsSelected="True"/>
+                        <ComboBoxItem Content="Scale"/>
+                    </ComboBox>
+                </Grid>
+
+                <Grid Grid.Row="8" 
+                      Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Visibility"
+                               Style="{StaticResource TextBlock_Style}" />
+                    <ComboBox x:Name="visibility" 
+                              Style="{StaticResource ComboBox_Style}">
+                        <ComboBoxItem Content="Collapsed"/>
+                        <ComboBoxItem Content="Visible" IsSelected="True"/>
+                    </ComboBox>
+                </Grid>
+
+                <Grid Grid.Row="9" 
+                      Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="HorizontalContentAlignment" 
+                               Style="{StaticResource TextBlock_Style}" />
+                    <ComboBox x:Name="horizontalContentAlignment" 
+                              Style="{StaticResource ComboBox_Style}">
+                        <ComboBoxItem Content="Left"/>
+                        <ComboBoxItem Content="Center"  IsSelected="True"/>
+                        <ComboBoxItem Content="Right"/>
+                        <ComboBoxItem Content="Stretch"/>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Grid.Row="10" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="VerticalContentAlignment"  
+                               Style="{StaticResource TextBlock_Style}" />
+                    <ComboBox x:Name="verticalContentAlignment"
+                              Style="{StaticResource ComboBox_Style}">
+                        <ComboBoxItem Content="Top" />
+                        <ComboBoxItem Content="Center" IsSelected="True"/>
+                        <ComboBoxItem Content="Bottom"/>
+                        <ComboBoxItem Content="Stretch"/>
+                    </ComboBox>
+
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
