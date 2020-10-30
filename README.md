@@ -18,10 +18,10 @@ This repository contains the samples that demonstrate the functionalities of Win
   <td><a href="Samples/Badge_Features">Predefined shapes for displaying the Badge</a></td>
   <td><a href="Samples/Badge_Features">Custom shape for displaying the Badge</a></td>
   <td><a href="Samples/Badge_Features">Animate when content changes</a></td>
-  <td><a href="Samples/Badge_Control">Stroke customization</a></td>
+  <td><a href="Samples/Content_CustomUI">Display number formatting</a></td>  
   </tr> 
  <tr>
-  <td><a href="Samples/Content_CustomUI">Display number formatting</a></td>
+<td><a href="Samples/Badge_Control">Stroke customization</a></td>
   <td><a href="Samples/Badge_Features">Badge content alignment</a></td>
   <td><a href="Samples/Badge_Control">Text formatting</a></td>
   <td><a href="Samples/Badge_Control">Change opacity of Badge</a></td>
