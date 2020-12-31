@@ -181,15 +181,15 @@ namespace Badge_Features
         {
             if (value.ToString() == "Scale")
             {
-                return AnimationType.Scale;
+                return BadgeAnimationType.Scale;
             }
             else if (value.ToString() == "Opacity")
             {
-                return AnimationType.Opacity;
+                return BadgeAnimationType.Opacity;
             }
             else
             {
-                return AnimationType.None;
+                return BadgeAnimationType.None;
             }
         }
 

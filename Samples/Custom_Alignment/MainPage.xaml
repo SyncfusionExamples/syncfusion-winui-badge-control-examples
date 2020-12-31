@@ -31,11 +31,11 @@
                                         x:Name="badge3"
                                         Shape="None"
                                         HorizontalAnchor="Custom"
-                                        VerticalAnchor="Custom"
-                                        HorizontalCustomAlignment="{x:Bind horizontalCustomAlignment.Value, Mode=OneWay}"
-                                        VerticalCustomAlignment="{x:Bind verticalCustomAlignment.Value, Mode=OneWay}"
-                                        HorizontalCustomAnchor="{x:Bind horizontalCustomAnchor.Value, Mode=OneWay}"
-                                        VerticalCustomAnchor="{x:Bind verticalCustomAnchor.Value, Mode=OneWay}">
+                                        VerticalAnchor="Custom"                        
+                                        HorizontalPosition="{x:Bind horizontalPosition.Value, Mode=OneWay}"
+                                        VerticalPosition="{x:Bind verticalPosition.Value, Mode=OneWay}"
+                                        HorizontalAnchorPosition="{x:Bind horizontalAnchorPosition.Value, Mode=OneWay}"
+                                        VerticalAnchorPosition="{x:Bind verticalAnchorPosition.Value, Mode=OneWay}">
                         <Ellipse Width="20" Height="20" Fill="LimeGreen"/>
                     </syncfusion:SfBadge>
                 </syncfusion:BadgeContainer.Badge>
@@ -57,40 +57,40 @@
                         Value="100"/>
                 
                 <Slider 
-                        x:Name="horizontalCustomAlignment" 
+                        x:Name="horizontalPosition" 
                         Margin="20"
                         Width="180"
-                        Header="HorizontalCustomAlignment"
+                        Header="HorizontalPosition"
                         Minimum="0"
                         Maximum="1"
                         StepFrequency="0.1"
                         Value="0.9"/>
                 
                 <Slider 
-                        x:Name="verticalCustomAlignment" 
+                        x:Name="verticalPosition" 
                         Margin="20"
                         Width="180"
-                        Header="VerticalCustomAlignment"
+                        Header="VerticalPosition"
                         Minimum="0"
                         Maximum="1"
                         StepFrequency="0.1"
                         Value="0.8"/>
                 
                 <Slider 
-                        x:Name="horizontalCustomAnchor" 
+                        x:Name="horizontalAnchorPosition" 
                         Margin="20"
                         Width="180"
-                        Header="HorizontalCustomAnchor"
+                        Header="HorizontalAnchorPosition"
                         Minimum="0"
                         Maximum="1"
                         StepFrequency="0.1"
                         Value="0.8"/>
                 
                 <Slider 
-                        x:Name="verticalCustomAnchor" 
+                        x:Name="verticalAnchorPosition" 
                         Margin="20"
                         Width="180"
-                        Header="VerticalCustomAnchor"
+                        Header="VerticalAnchorPosition"
                         Minimum="0"
                         Maximum="1"
                         StepFrequency="0.1"

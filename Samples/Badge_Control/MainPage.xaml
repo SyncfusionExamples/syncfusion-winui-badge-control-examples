@@ -29,7 +29,7 @@
             </syncfusion:BadgeContainer.Badge>
             <syncfusion:BadgeContainer.Content>
                 <Button Content="Inbox"
-                        Width="100" Height="40">
+                        Width="100" Height="60">
                 </Button>
             </syncfusion:BadgeContainer.Content>
         </syncfusion:BadgeContainer>
